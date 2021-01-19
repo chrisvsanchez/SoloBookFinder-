@@ -4,7 +4,7 @@ const Search = ({ handleSearchInput, searchTerm }) => {
   return (
     <>
       <h1 className="app-name">Book Finder</h1>
-      <form className="search-form">
+      <form className="search-form" onSubmit={handleSearchInput}>
         <input
           className="search-input"
           type="text"

@@ -9,6 +9,7 @@ function App() {
   const API_ENDPOINT = "https://www.googleapis.com/books/v1/volumes?q=";
   const [searchTerm, setSearchTerm] = useState("");
   const [books, setBooks] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const handleSearchInput = (e) => {
     setSearchTerm(e.target.value);
   };
@@ -16,6 +17,7 @@ function App() {
     if (searchTerm === "") {
       return;
     }
+    setIsLoading(true);
     fetch(`${API_ENDPOINT}${searchTerm}:keyes&key=${API_KEY}`)
       .then((r) => r.json())
       .then((books) => {
@@ -64,12 +66,15 @@ function App() {
             );
           })
         );
+        setIsLoading(false);
       });
   }, [searchTerm]);
   return (
     <div className="main-container">
       <Search searchTerm={searchTerm} handleSearchInput={handleSearchInput} />
-      <div className="cards-container">{books}</div>
+      <div className="cards-container">
+        {isLoading ? <p>Is Loading...</p> : books}
+      </div>
     </div>
   );
 }
