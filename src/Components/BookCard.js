@@ -1,12 +1,32 @@
 import React from "react";
-
-const BookCard = ({ image, title, description }) => {
+// import { Link } from "react-router";
+const BookCard = ({
+  image,
+  title,
+  description,
+  author,
+  publisher,
+  infoLink,
+}) => {
   return (
     <div className="card">
       <h1 className="title">{title}</h1>
-      <img className="book-cover" src={image} alt={title} />
+      <span className="author">By {author}</span>
+      <span className="publisher">{publisher}</span>
+      {image}
       <p className="description">{description}</p>
-      <button className="details">More Details</button>
+      {/* <Link to={infoLink}> */}
+      <button
+        type="button"
+        className="details"
+        onClick={(e) => {
+          e.preventDefault();
+          window.location.href = infoLink;
+        }}
+      >
+        More Details
+      </button>
+      {/* </Link> */}
     </div>
   );
 };

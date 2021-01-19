@@ -1,32 +1,46 @@
+html {
+  font-family: "Oxygen", sans-serif;
+  /* display: flex;
+  justify-content: center; */
+}
+
 .app-name {
   display: flex;
   justify-content: center;
+  font-size: 3em;
+  font-weight: 300;
 }
 .main-container {
-  position: absolute;
-  background: coral;
-  width: 100%;
+  /* position: absolute; */
+  position: relative;
+
+  background: #fdfcdc;
+  width: 100vw;
   height: 100%;
+  padding: 2em;
 }
 .cards-container {
-  position: relative;
-  display: flex;
-  justify-content: center;
+  /* position: relative; */
 
-  background: rgb(131, 58, 180);
+  justify-content: center;
+  /* align-content: center; */
+
+  /* background: rgb(131, 58, 180);
   background: radial-gradient(
     circle,
     rgba(131, 58, 180, 1) 0%,
     rgba(253, 29, 29, 1) 50%,
     rgba(252, 176, 69, 1) 100%
-  );
+  ); */
   width: 80vw;
-  height: 75vh;
+  height: 100%;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-auto-rows: auto;
-  grid-gap: 1rem;
+  grid-gap: 2rem;
+  padding: 3em;
+  border-radius: 3rem;
 }
 .search-form {
   position: relative;
@@ -38,61 +52,100 @@
 .search-input {
   width: 400px;
   height: 40px;
-  border: teal solid;
-  font-size: 2em;
+  /* border: teal solid; */
+  font-size: 1em;
 }
 .search-button {
   padding: 0.1em;
-
+  width: 8rem;
   box-shadow: black;
+  /* color: white; */
+  font-size: 1em;
   color: white;
-  font-size: 2em;
-  border-radius: 12px;
-  background: rgb(34, 193, 195);
-  background: linear-gradient(
-    90deg,
-    rgba(34, 193, 195, 1) 0%,
-    rgba(64, 214, 143, 1) 35%,
-    rgba(64, 214, 143, 1) 35%,
-    rgba(83, 227, 110, 1) 57%,
-    rgba(121, 253, 45, 0.359375) 100%
-  );
+
+  background-color: #00afb9;
 }
 /* Book Container card*/
 .card {
   position: relative;
+  color: white;
   border-radius: 4px;
   padding: 2rem;
-  background-color: cadetblue;
+  background-color: #0081a7;
   width: 30vw;
   height: 30vh;
+  padding: 3em;
+  border-radius: 1rem;
+  box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, 0.2);
+}
+.author {
+  position: relative;
+  font-weight: bold;
+  margin: 0 auto;
+  bottom: 15%;
+}
+.publisher {
+  position: relative;
+  margin: 0 auto;
+  display: flex;
+  justify-content: left;
+  top: -15%;
 }
 .title {
-  font-size: 1em;
+  position: relative;
+  display: flex;
+  justify-content: left;
+  font-size: 1.5em;
   margin: 0 auto;
+  bottom: 17%;
 }
 .book-cover {
+  position: relative;
+  display: flex;
+  justify-content: left;
+  /* padding: 0.5em; */
+  top: -13%;
+  box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, 0.2);
+  height: 12rem;
+}
+.svg-book {
+  position: absolute;
+  display: flex;
+  justify-content: left;
+  width: 8rem;
+  height: 17.88rem;
+  top: 10%;
+  padding: 0.5em;
 }
 .description {
   position: absolute;
   margin: 0%;
   width: 260px;
   height: 150px;
-  top: 20%;
+  top: 30%;
   right: 16px;
-  border: 3px solid #73ad21;
+  /* border: 3px solid #73ad21; */
   padding: 10px;
   white-space: wrap;
   text-overflow: ellipsis;
   line-height: 1.5em;
-  overflow: scroll;
+  overflow: auto;
+  /* overflow: scroll; */
   font-size: 1em;
 }
 .details {
   position: absolute;
+  /* display: flex;
+  justify-content: center; */
   bottom: 3%;
   left: 67%;
   width: 30%;
+  height: 8%;
   margin-right: 30%;
-  border-top-left-radius: 2rem;
+  background-color: #00afb9;
+  color: white;
+
+  /* border-top-left-radius: 2rem; */
+  border-radius: 1rem;
+  box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, 0.2);
 }
