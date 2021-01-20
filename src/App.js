@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import Search from "./Components/Search";
 import BookCard from "./Components/BookCard";
 import bookIcon from "./images/BookSVG.svg";
-import LoadingBooks from "./images/Book Flipping.svg";
+import LoadingBooks from "./images/giphy.gif";
 const API_KEY = process.env.REACT_APP_GOOGLE_BOOKS_API;
 // console.log(process.env.REACT_APP_GOOGLE_BOOKS_API);
 function App() {
@@ -11,6 +11,7 @@ function App() {
   const [searchTerm, setSearchTerm] = useState("");
   const [books, setBooks] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
   const handleSearchInput = (e) => {
     setSearchTerm(e.target.value);
   };
@@ -69,6 +70,7 @@ function App() {
         setIsLoading(false);
       })
       .catch((error) => {
+        setIsError(true);
         console.error("Error:", error);
       });
   };
@@ -80,9 +82,23 @@ function App() {
         handleSearchInput={handleSearchInput}
         handleSubmit={handleSubmit}
       />
-      <div className="cards-container">
-        {isLoading ? <p>Is Loading...</p> : books}
-      </div>
+      {isError === false && !searchTerm === "" ? (
+        <h1 className="no-books-found">
+          {" "}
+          Sorry no books with {searchTerm} in it's title!{" "}
+        </h1>
+      ) : (
+        <div className="cards-container">
+          {isLoading ? (
+            <div className="loading">
+              <h3 className="loading-text">Searching for books..</h3>
+              <img alt="loading" src={LoadingBooks}></img>
+            </div>
+          ) : (
+            books
+          )}
+        </div>
+      )}
     </div>
   );
 }
