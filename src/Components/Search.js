@@ -1,10 +1,10 @@
 import React from "react";
 
-const Search = ({ handleSearchInput, searchTerm }) => {
+const Search = ({ handleSearchInput, searchTerm, handleSubmit }) => {
   return (
     <>
       <h1 className="app-name">Book Finder</h1>
-      <form className="search-form" onSubmit={handleSearchInput}>
+      <form className="search-form" onSubmit={handleSubmit}>
         <input
           className="search-input"
           type="text"

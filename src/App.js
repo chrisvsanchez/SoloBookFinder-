@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Search from "./Components/Search";
 import BookCard from "./Components/BookCard";
 import bookIcon from "./images/BookSVG.svg";
+import LoadingBooks from "./images/Book Flipping.svg";
 const API_KEY = process.env.REACT_APP_GOOGLE_BOOKS_API;
 // console.log(process.env.REACT_APP_GOOGLE_BOOKS_API);
 function App() {
@@ -13,10 +14,9 @@ function App() {
   const handleSearchInput = (e) => {
     setSearchTerm(e.target.value);
   };
-  useEffect(() => {
-    if (searchTerm === "") {
-      return;
-    }
+  let handleSubmit = (e) => {
+    e.preventDefault();
+    // alert("button pressed");
     setIsLoading(true);
     fetch(`${API_ENDPOINT}${searchTerm}:keyes&key=${API_KEY}`)
       .then((r) => r.json())
@@ -67,11 +67,19 @@ function App() {
           })
         );
         setIsLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
       });
-  }, [searchTerm]);
+  };
+
   return (
     <div className="main-container">
-      <Search searchTerm={searchTerm} handleSearchInput={handleSearchInput} />
+      <Search
+        searchTerm={searchTerm}
+        handleSearchInput={handleSearchInput}
+        handleSubmit={handleSubmit}
+      />
       <div className="cards-container">
         {isLoading ? <p>Is Loading...</p> : books}
       </div>
