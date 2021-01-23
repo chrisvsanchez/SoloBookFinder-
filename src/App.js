@@ -76,30 +76,32 @@ function App() {
   };
 
   return (
-    <div className="main-container">
-      <Search
-        searchTerm={searchTerm}
-        handleSearchInput={handleSearchInput}
-        handleSubmit={handleSubmit}
-      />
-      {isError === false && !searchTerm === "" ? (
-        <h1 className="no-books-found">
-          {" "}
-          Sorry no books with {searchTerm} in it's title!{" "}
-        </h1>
-      ) : (
-        <div className="cards-container">
-          {isLoading ? (
-            <div className="loading">
-              <h3 className="loading-text">Searching for books..</h3>
-              <img alt="loading" src={LoadingBooks}></img>
-            </div>
-          ) : (
-            books
-          )}
-        </div>
-      )}
-    </div>
+    <>
+      <div className="main-container">
+        <Search
+          searchTerm={searchTerm}
+          handleSearchInput={handleSearchInput}
+          handleSubmit={handleSubmit}
+        />
+        {isError === true && !searchTerm === "" ? (
+          <h1 className="no-books-found">
+            {" "}
+            Sorry no books with {searchTerm} in it's title!{" "}
+          </h1>
+        ) : (
+          <div className="cards-container">
+            {isLoading ? (
+              <div className="loading">
+                <h3 className="loading-text">Searching for books..</h3>
+                <img alt="loading" src={LoadingBooks}></img>
+              </div>
+            ) : (
+              books
+            )}
+          </div>
+        )}
+      </div>
+    </>
   );
 }
 
