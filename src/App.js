@@ -1,11 +1,11 @@
 import "./App.css";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Search from "./Components/Search";
 import BookCard from "./Components/BookCard";
 import bookIcon from "./images/BookSVG.svg";
 import LoadingBooks from "./images/giphy.gif";
 const API_KEY = process.env.REACT_APP_GOOGLE_BOOKS_API;
-// console.log(process.env.REACT_APP_GOOGLE_BOOKS_API);
+
 function App() {
   const API_ENDPOINT = "https://www.googleapis.com/books/v1/volumes?q=";
   const [searchTerm, setSearchTerm] = useState("");
@@ -17,7 +17,7 @@ function App() {
   };
   let handleSubmit = (e) => {
     e.preventDefault();
-    // alert("button pressed");
+
     setIsLoading(true);
     fetch(`${API_ENDPOINT}${searchTerm}:keyes&key=${API_KEY}`)
       .then((r) => r.json())
