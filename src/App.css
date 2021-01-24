@@ -127,7 +127,7 @@ html {
 .author-publish {
   font-size: 1em;
   line-height: 1.5rem;
-  flex-basis: ;
+  /* flex-basis: ; */
 }
 @media (max-width: 700px) {
   .image-author {

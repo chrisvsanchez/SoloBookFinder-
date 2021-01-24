@@ -5,7 +5,7 @@ import BookCard from "./Components/BookCard";
 import bookIcon from "./images/BookSVG.svg";
 import LoadingBooks from "./images/giphy.gif";
 const API_KEY = process.env.REACT_APP_GOOGLE_BOOKS_API;
-
+// console.log(process.env.REACT_APP_GOOGLE_BOOKS_API);
 function App() {
   const API_ENDPOINT = "https://www.googleapis.com/books/v1/volumes?q=";
   const [searchTerm, setSearchTerm] = useState("");
