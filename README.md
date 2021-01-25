@@ -1,5 +1,7 @@
 # Book Finder📚
 
+![](BookFinder.gif)
+
 ## Overview
 
 This application was built for Chingu solo project submission for Voyage 27. This application was built with React along with the Google Books API to responsively search for books. The application returns cards that includes a cover image, title, author, publisher and a button that links to additional information.

@@ -16,7 +16,7 @@ function App() {
   };
   let handleSubmit = (e) => {
     e.preventDefault();
-
+    setIsError(false);
     setIsLoading(true);
     fetch(
       `${API_ENDPOINT}${searchTerm}:keyes&key=${process.env.REACT_APP_GOOGLE_BOOKS_API}`
@@ -82,7 +82,7 @@ function App() {
           handleSearchInput={handleSearchInput}
           handleSubmit={handleSubmit}
         />
-        {isError && searchTerm !== "" ? (
+        {isError && searchTerm.length > 0 ? (
           <h1 className="no-books-found">
             {" "}
             Sorry no books with {searchTerm} in it's title!{" "}
