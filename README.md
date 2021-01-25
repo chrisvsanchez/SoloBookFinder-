@@ -18,10 +18,12 @@ Deployed Link [SoloBookFinder](https://solo-book-finder.herokuapp.com/)
 - Responsive design from mobile to Desktop view using CSS flex properties
 - Abides WCAG's 2.0 contrast guidelines with at least a 7:1 ratio
 - Stateless Boxcard child component
+- Error handling whether API returns an error or user submits an empty string
+- Loading screen if API takes too long to load
 
 ## Running The Project
 
 1. Clone this project locally
-2. Run npm install in your command line
+2. Run npm install in your command line / terminal
 3. Run npm start
 4. Enjoy
