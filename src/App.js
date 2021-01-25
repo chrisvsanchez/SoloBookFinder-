@@ -4,7 +4,6 @@ import Search from "./Components/Search";
 import BookCard from "./Components/BookCard";
 import bookIcon from "./images/BookSVG.svg";
 import LoadingBooks from "./images/giphy.gif";
-const API_KEY = process.env.REACT_APP_GOOGLE_BOOKS_API;
 
 function App() {
   const API_ENDPOINT = "https://www.googleapis.com/books/v1/volumes?q=";
@@ -24,13 +23,11 @@ function App() {
     )
       .then((r) => r.json())
       .then((books) => {
-        console.log(books);
         setBooks(
           books.items.map((book) => {
             return (
               <BookCard
                 key={book.id}
-                // key={book.volumeInfo.industryIdentifiers[0].identifier.parseInt()}
                 title={book.volumeInfo.title}
                 author={
                   book.volumeInfo.authors
@@ -85,14 +82,14 @@ function App() {
           handleSearchInput={handleSearchInput}
           handleSubmit={handleSubmit}
         />
-        {isError === true && !searchTerm === "" ? (
+        {isError && searchTerm !== "" ? (
           <h1 className="no-books-found">
             {" "}
             Sorry no books with {searchTerm} in it's title!{" "}
           </h1>
         ) : (
           <div className="cards-container">
-            {isLoading ? (
+            {isLoading && searchTerm !== "" ? (
               <div className="loading">
                 <h3 className="loading-text">Searching for books..</h3>
                 <img alt="loading" src={LoadingBooks}></img>

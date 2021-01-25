@@ -99,26 +99,24 @@ html {
 }
 
 .loading {
-  position: relative;
   display: grid;
   justify-content: center;
-  border: springgreen solid;
-  width: 70vw;
-  height: 80%;
-  font-size: 20pt;
+  width: 100%;
+  font-size: 2em;
 }
-
+.loading img {
+  width: 20rem;
+  height: auto;
+}
 .image-author {
   display: flex;
   gap: 50px;
   align-items: center;
 }
-.loading-text {
-  position: relative;
+/* .loading-text {
   text-align: center;
   top: 0%;
-  z-index: 2;
-}
+} */
 .no-books-found {
   color: tomato;
   display: grid;
@@ -181,5 +179,8 @@ html {
   }
   .more-info-button {
     width: 100%;
+  }
+  .loading {
+    width: 150px;
   }
 }
