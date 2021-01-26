@@ -4,7 +4,7 @@ const BookCard = ({ image, title, author, publisher, infoLink }) => {
   return (
     <div className="card">
       {/* <div className="info"> */}
-      <h1 className="title">{title}</h1>
+      <h2 className="title">{title}</h2>
 
       <div className="image-author">
         {image}

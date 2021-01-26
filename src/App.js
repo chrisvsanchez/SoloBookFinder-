@@ -19,7 +19,8 @@ function App() {
     setIsError(false);
     setIsLoading(true);
     fetch(
-      `${API_ENDPOINT}${searchTerm}:keyes&key=${process.env.REACT_APP_GOOGLE_BOOKS_API}`
+      `${API_ENDPOINT}${searchTerm}
+      }`
     )
       .then((r) => r.json())
       .then((books) => {
@@ -83,10 +84,10 @@ function App() {
           handleSubmit={handleSubmit}
         />
         {isError && searchTerm.length > 0 ? (
-          <h1 className="no-books-found">
+          <h2 className="no-books-found">
             {" "}
             Sorry no books with {searchTerm} in it's title!{" "}
-          </h1>
+          </h2>
         ) : (
           <div className="cards-container">
             {isLoading && searchTerm !== "" ? (
