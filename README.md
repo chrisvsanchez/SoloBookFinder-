@@ -1,4 +1,4 @@
-# Book Finder📚
+# Solo Book Finder📚
 
 ![](BookFinder.gif)
 
